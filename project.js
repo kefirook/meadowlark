@@ -1,13 +1,5 @@
 var express = require('express');
-
-var fortunes = [
-"Победи свои страхи, или они победят тебя.",
-"Рекам нужны истоки.",
-"Не бойся неведомого.",
-"Тебя ждет приятный сюрприз.",
-"Будь проще везде, где только можно.",
-];
-
+var fortune = require('./lib/fortune.js');
 var app = express();
 var handlebars = require('express-handlebars')
   .create({ defaultLaoyut: 'main'});
@@ -21,9 +13,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/about', function(req, res){
-  var randomFortune =
-  fortunes[Math.floor(Math.random() * fortunes.length)];
-  res.render('about', { fortune: randomFortune });
+  res.render('about', { fortune: fortune.getFortune });
 });
 
 app.use(function(req, res, next){
