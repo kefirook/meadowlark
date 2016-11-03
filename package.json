@@ -1,0 +1,15 @@
+{
+  "name": "firstpr",
+  "version": "1.0.0",
+  "description": "First site on node.js",
+  "main": "project.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kefirook",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0"
+  }
+}
