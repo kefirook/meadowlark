@@ -1,8 +1,12 @@
 {
-  "name": "firstpr",
+  "name": "firstproject",
   "version": "1.0.0",
   "description": "First site on node.js",
   "main": "project.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kefirook/meadowlark.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,5 +15,14 @@
   "dependencies": {
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "grunt": "^1.0.1",
+    "grunt-cafe-mocha": "^0.1.13",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-exec": "^1.0.1",
+    "mocha": "^3.1.2",
+    "zombie": "^3.1.1"
   }
 }
