@@ -1,10 +1,12 @@
 var express = require('express');
 var fortune = require('./lib/fortune.js');
+var weather = require('./lib/weather.js');
 
 var app = express();
 
 var handlebars = require('express-handlebars')
   .create({ defaultLayout: 'main',
+  extname: '.hbs',
   helpers: {
               section: function (name, options) {
                   if (!this._sections) {
@@ -15,8 +17,8 @@ var handlebars = require('express-handlebars')
               }
             }
   });
-app.engine('handlebars', handlebars.engine);
-app.set('view engine', 'handlebars');
+app.engine('.hbs', handlebars.engine);
+app.set('view engine', '.hbs');
 
 app.use(express.static(__dirname + '/public'));
 
@@ -45,6 +47,12 @@ app.get('/tours/hood-river', function(req, res){
 
 app.get('/tours/request-group-rate', function(req, res){
   res.render('tours/request-group-rate');
+});
+
+app.use(function(req, res, next){
+  if(!res.locals.partials) res.locals.partials = {};
+  res.locals.partials.weatherContext = weather.getWeatherData();
+  next();
 });
 
 app.use(function(req, res, next){

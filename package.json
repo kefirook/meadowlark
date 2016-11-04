@@ -17,6 +17,7 @@
     "express-handlebars": "^3.0.0"
   },
   "devDependencies": {
+    "bufferutil": "^1.2.1",
     "chai": "^3.5.0",
     "grunt": "^1.0.1",
     "grunt-cafe-mocha": "^0.1.13",
